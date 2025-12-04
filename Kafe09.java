@@ -27,5 +27,7 @@ public class Kafe09 {
         System.out.println("6. Mie goreng - Rp 18,000");
         System.out.println("================================");
         System.out.println("Silahkan pilih menu yang anda inginkan.");
+    
+        Menu("Budi", true, "DISKON30");
     }
 }
