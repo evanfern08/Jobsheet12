@@ -39,7 +39,7 @@ public class Kafe09 {
             int banyakItem = sc.nextInt();
 
             //hitung total untuk pesanan ini
-            int totalHarga = hitungTotalHarga06(pilihanMenu, banyakItem, kodePromo);
+            int totalHarga = hitungTotalHarga09(pilihanMenu, banyakItem, kodePromo);
             System.out.println("Total harga untuk pesanan ke-" + (i+1) + " adalah: Rp " + totalHarga);
 
             //total keseluruhan
@@ -51,7 +51,7 @@ public class Kafe09 {
         sc.close();
     }
 
-    public static int hitungTotalHarga06(int pilihanMenu, int banyakItem, String kodePromo) {
+    public static int hitungTotalHarga09(int pilihanMenu, int banyakItem, String kodePromo) {
         int[] hargaItems = {15000, 20000, 22000, 12000, 10000, 18000};
         int hargaTotal = hargaItems[pilihanMenu - 1] * banyakItem;
 
