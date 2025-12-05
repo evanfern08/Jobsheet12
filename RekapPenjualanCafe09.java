@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class RekapPenjualanCafe09 {
 
-    // Fungsi untuk input data penjualan (5 menu × 7 hari)
+    // Fungsi untuk input data penjualan
     static void inputData(int[][] data, String[] menu, Scanner sc) {
         System.out.println("\n=== INPUT DATA PENJUALAN ===");
         for (int i = 0; i < menu.length; i++) {
@@ -14,7 +14,7 @@ public class RekapPenjualanCafe09 {
         }
     }
 
-    // Fungsi untuk menampilkan seluruh data dalam bentuk tabel
+    // Fungsi untuk menampilkan tabel
     static void tampilTabel(int[][] data, String[] menu) {
         System.out.println("\n=== TABEL PENJUALAN ===");
         System.out.print("Menu\t\t");
@@ -33,7 +33,7 @@ public class RekapPenjualanCafe09 {
         }
     }
 
-    // Fungsi untuk mencari menu dengan total penjualan tertinggi
+    // Fungsi mencari menu penjualan tertinggi
     static void menuPenjualanTertinggi(int[][] data, String[] menu) {
         int maxTotal = -1;
         String menuMax = "";
@@ -54,7 +54,7 @@ public class RekapPenjualanCafe09 {
         System.out.println(menuMax + " (Total: " + maxTotal + ")");
     }
 
-    // Fungsi untuk menampilkan rata-rata penjualan tiap menu
+    // Fungsi menampilkan rata-rata tiap menu
     static void rataRataPerMenu(int[][] data, String[] menu) {
         System.out.println("\n=== RATA-RATA PENJUALAN PER MENU ===");
         for (int i = 0; i < data.length; i++) {
@@ -67,18 +67,32 @@ public class RekapPenjualanCafe09 {
         }
     }
 
+    // ========================= MAIN ===============================
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // 5 menu × 7 hari
-        String[] menu = {"Kopi", "Teh", "Es Kelapa Muda", "Roti Bakar", "Gorengan"};
-        int[][] data = new int[5][7];
+        System.out.print("Masukkan jumlah menu: ");
+        int jumlahMenu = sc.nextInt();
+        sc.nextLine(); // membersihkan newline
 
-        // Memanggil seluruh fungsi
-        inputData(data, menu, sc);           // Input data
-        tampilTabel(data, menu);             // Menampilkan tabel
-        menuPenjualanTertinggi(data, menu);  // Mencari menu tertinggi
-        rataRataPerMenu(data, menu);         // Rata-rata menu
+        String[] menu = new String[jumlahMenu];
+
+        System.out.println("Masukkan nama menu:");
+        for (int i = 0; i < jumlahMenu; i++) {
+            System.out.print("Menu ke-" + (i + 1) + ": ");
+            menu[i] = sc.nextLine();
+        }
+
+        System.out.print("\nMasukkan jumlah hari penjualan: ");
+        int jumlahHari = sc.nextInt();
+
+        int[][] data = new int[jumlahMenu][jumlahHari];
+
+        // Memanggil semua fungsi
+        inputData(data, menu, sc);
+        tampilTabel(data, menu);
+        menuPenjualanTertinggi(data, menu);
+        rataRataPerMenu(data, menu);
 
         sc.close();
     }
